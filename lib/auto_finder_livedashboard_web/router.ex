@@ -13,6 +13,12 @@ defmodule AutoFinderLivedashboardWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api", AutoFinderLivedashboardWeb do
+    pipe_through :api
+
+    get "/used_cars", UsedCarController, :index
+  end
+
   scope "/", AutoFinderLivedashboardWeb do
     pipe_through :browser
 
